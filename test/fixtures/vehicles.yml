@@ -6,7 +6,7 @@ one:
   odometer: 1
   brand: MyString
   model: MyString
-  state: MyString
+  condition: MyString
   price: 9.99
   engine_volume: 9.99
   fuel_type: MyString
@@ -19,6 +19,7 @@ one:
   is_available: false
   body_type: MyString
   type: 
+  user: one
 
 two:
   region: MyString
@@ -26,7 +27,7 @@ two:
   odometer: 1
   brand: MyString
   model: MyString
-  state: MyString
+  condition: MyString
   price: 9.99
   engine_volume: 9.99
   fuel_type: MyString
@@ -39,3 +40,4 @@ two:
   is_available: false
   body_type: MyString
   type: 
+  user: two

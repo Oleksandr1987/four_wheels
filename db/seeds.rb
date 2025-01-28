@@ -12,27 +12,25 @@
 
 # Create 10 users
 10.times do
-  User.create(
+  user = User.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    email: Faker::Internet.unique.email,
-    phone: Faker::PhoneNumber.phone_number,
+    email: "#{Faker::Name.last_name.downcase.parameterize}@example.com",
+    phone: Faker::PhoneNumber.cell_phone.gsub(/\D/, ''),
     password_digest: BCrypt::Password.create('P@ssword123456')
   )
-end
-
-# Create 10 vehicles for each user
-User.all.each do |user|
+  
+  # Create 10 vehicles for each user
   10.times do
-    Vehicle.create(
-      region: Faker::Address.state,
+    Vehicle.create!(
+      region: ["Kyiv", "Lviv", "Odessa", "Dnipro", "Kharkiv", "Zaporizhzhia", "Vinnytsia", "Poltava", "Cherkasy", "Sumy"].sample,
       year: Faker::Vehicle.year,
       odometer: Faker::Vehicle.kilometrage,
       brand: Faker::Vehicle.manufacture,
       model: Faker::Vehicle.model,
-      state: ['new', 'used'].sample,
+      condition: ['new_condition', 'used'].sample,
       price: Faker::Commerce.price(range: 5000..50_000),
-      engine_volume: Faker::Number.decimal(l_digits: 1, r_digits: 1),
+      engine_volume: rand(1.0..5.0).round(1),
       fuel_type: ['petrol', 'diesel', 'electric', 'hybrid'].sample,
       gear_box: ['automatic', 'manual', 'variator'].sample,
       drive_type: ['front-wheel drive', 'rear-wheel drive', 'all-wheel drive'].sample,
@@ -42,8 +40,8 @@ User.all.each do |user|
       description: Faker::Lorem.sentence(word_count: 15),
       is_available: [true, false].sample,
       body_type: Faker::Vehicle.car_type,
-      type: ['Passanger cars', "Moto", "Trucks", "Trailers", "Special equipment", "Agricultural machinery", "Buses"].sample,  # or you can specify a different type if required
-      user_id: user.id
+      vehicle_type: ['Passanger cars', "Moto", "Trucks", "Trailers", "Special equipment", "Agricultural machinery", "Buses"].sample,
+      user: user  # Associate vehicle with user
     )
   end
 end

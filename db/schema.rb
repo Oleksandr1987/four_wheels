@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_01_28_081206) do
+ActiveRecord::Schema[7.2].define(version: 2025_01_28_120245) do
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -27,7 +27,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_28_081206) do
     t.integer "odometer"
     t.string "brand"
     t.string "model"
-    t.string "state"
+    t.string "condition"
     t.decimal "price"
     t.decimal "engine_volume"
     t.string "fuel_type"
@@ -39,8 +39,12 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_28_081206) do
     t.text "description"
     t.boolean "is_available"
     t.string "body_type"
-    t.string "type"
+    t.string "vehicle_type"
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_vehicles_on_user_id"
   end
+
+  add_foreign_key "vehicles", "users"
 end

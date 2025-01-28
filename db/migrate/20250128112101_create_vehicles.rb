@@ -6,7 +6,7 @@ class CreateVehicles < ActiveRecord::Migration[7.2]
       t.integer :odometer
       t.string :brand
       t.string :model
-      t.string :state
+      t.string :condition
       t.decimal :price
       t.decimal :engine_volume
       t.string :fuel_type
@@ -19,6 +19,7 @@ class CreateVehicles < ActiveRecord::Migration[7.2]
       t.boolean :is_available
       t.string :body_type
       t.string :type
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end
