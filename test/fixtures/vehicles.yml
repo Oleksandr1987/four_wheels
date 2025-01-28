@@ -1,0 +1,43 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  region: MyString
+  year: 1
+  odometer: 1
+  brand: MyString
+  model: MyString
+  condition: MyString
+  price: 9.99
+  engine_volume: 9.99
+  fuel_type: MyString
+  gear_box: MyString
+  drive_type: MyString
+  color: MyString
+  vin_number: MyString
+  image_url: MyString
+  description: MyText
+  is_available: false
+  body_type: MyString
+  type: 
+  user: one
+
+two:
+  region: MyString
+  year: 1
+  odometer: 1
+  brand: MyString
+  model: MyString
+  condition: MyString
+  price: 9.99
+  engine_volume: 9.99
+  fuel_type: MyString
+  gear_box: MyString
+  drive_type: MyString
+  color: MyString
+  vin_number: MyString
+  image_url: MyString
+  description: MyText
+  is_available: false
+  body_type: MyString
+  type: 
+  user: two
