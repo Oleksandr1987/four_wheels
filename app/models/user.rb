@@ -5,4 +5,12 @@ class User < ApplicationRecord
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   has_many :vehicles
+  has_secure_password validations: false
+  validate :password_presence
+
+  private
+
+  def password_presence
+    errors.add(:password, :blank) if password_digest.blank?
+  end
 end
